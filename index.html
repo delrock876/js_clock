@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>Javascript Clock</h1>
+  <h2 id="currentTime"> // </h2>
+
+  <h4>Morning Alarm</h4>
+  <h4>Lunch Alarm</h4>
+  <h4>Bedtime Alarm</h4>
+  
+</body>
+
+<script>
+  const today = new Date()
+    let meridian = `AM`
+    let minutes = today.getMinutes()
+    let current = `${today.getHours()}:${minutes + meridian}`
+
+    //displays am or pm
+    if (today.getHours() > 12) {
+      meridian = `PM`
+    }
+
+    const convertTime = _ => {
+      if (minutes < 10) {
+        minutes = `0${minutes}`
+      }
+      //converts from military time
+      if (today.getHours() > 12) {
+        return current = `${today.getHours() - 12}:${minutes + meridian}`
+      }
+    }
+
+    setInterval(convertTime, 1000);
+
+    console.log(convertTime())
+
+    let time = document.getElementById('currentTime').innerHTML = convertTime()
+
+
+
+
+</script>
+</html>
